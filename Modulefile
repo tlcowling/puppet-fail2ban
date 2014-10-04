@@ -1,0 +1,10 @@
+name          'fail2ban'
+version       '0.1.0'
+source        'github.com/cjcotton/puppet-fail2ban'
+author        'Courtney Cotton <cjottoc@gmail.com>, Tom Cowling <tom.cowling@gmail.com>'
+license       'MIT'
+summary       'Installs fail2ban on Redhat and Debian based systems'
+description   'fail2ban: blocks ips if theyre doing repeating stuff'
+project_page  'http://www.tlcowling.com/puppet/fail2ban'
+
+dependency 'puppetlabs/stdlib'

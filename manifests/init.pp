@@ -12,16 +12,17 @@
 # (Required) E-mail used in template to send alerts to on behalf of a Jail.
 #
 
-class fail2ban(
+class fail2ban (
   $teamEmail = hiera('team_email', ''),
 ) {
+
   package { 'fail2ban':
     ensure => installed,
-    before => [ File['/etc/fail2ban/fail2ban.conf'], 
+    before => [ File['/etc/fail2ban/fail2ban.conf'],
                 File['/etc/fail2ban/jail.conf'],
                 File['/etc/fail2ban/jail.local'],
-		File['/etc/fail2ban/action.d/sendmail-whois.conf'], 
-		File['/etc/fail2ban/filter.d/sshd.conf'],
+                File['/etc/fail2ban/action.d/sendmail-whois.conf'],
+                File['/etc/fail2ban/filter.d/sshd.conf'],
               ],
   }
 
@@ -29,14 +30,14 @@ class fail2ban(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('app_fail2ban/fail2ban.erb'),
+    content => template('fail2ban/fail2ban.erb'),
   }
 
   file { '/etc/fail2ban/jail.conf':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('app_fail2ban/jail.erb'),
+    content => template('fail2ban/jail.erb'),
   }
 
 
@@ -44,21 +45,21 @@ class fail2ban(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('app_fail2ban/jail.local.erb'),
+    content => template('fail2ban/jail.local.erb'),
   }
 
   file { '/etc/fail2ban/action.d/sendmail-whois.conf':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('app_fail2ban/sendmail-whois.erb'),
+    content => template('fail2ban/sendmail-whois.erb'),
   }
 
   file { '/etc/fail2ban/filter.d/sshd.conf':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('app_fail2ban/sshd.erb'),
+    content => template('fail2ban/sshd.erb'),
   }
 
   service { 'fail2ban':

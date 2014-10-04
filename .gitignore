@@ -1,0 +1,11 @@
+# for you unclean vim enthusiasts
+*.swp
+
+# for you locky [something]Files
+*.lock
+
+# vagrant hidden files
+.vagrant
+
+# fail2ban hidden
+.fail2ban
