@@ -1,7 +1,7 @@
 # === Class: fail2ban::ubuntu
 #
-# === Author: Tom Cowling <tcowling@cellusys.com>
+# === Author: Tom Cowling <tom.cowling@gmail.com>
 #
-class fail2ban::ubuntu inherits {
+class fail2ban::ubuntu inherits fail2ban {
 
 }
