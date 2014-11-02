@@ -9,3 +9,6 @@
 
 # fail2ban hidden
 .fail2ban
+
+# Beaker spec
+spec/fixtures
